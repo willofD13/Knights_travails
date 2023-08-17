@@ -31,6 +31,9 @@ class Chess_board
         v 
     end
 
+    def shortest_path(first,last)
+        queue = []
+
         
 
 end
