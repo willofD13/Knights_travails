@@ -33,6 +33,7 @@ class Chess_board
 
     def shortest_path(first,last)
         queue = []
+        queue.push(first)
 
         
 
