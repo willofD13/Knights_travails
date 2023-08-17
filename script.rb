@@ -13,6 +13,22 @@ class Chess_board
         nodes.each do |node|
             vertices[node] = []
         end
+
+        vertices.each do |k,v|
+            add_neighbors(k,v)
+        end
+        vertices
+    end
+
+    def add_neighbors(k,v)
+        moves = [[+2,+1], [+2,-1], [+1,+2], [+1,-2], [-1,+2], [-1,-2], [-2,+1], [-2,-1]]
+
+        moves.each do |move|
+            x = k[0] + move[0]
+            y = k[1] + move[1]
+            v << [x,y] if x.between?(1,8) && y.between?(1,8)
+        end 
+        v 
     end
 
         
