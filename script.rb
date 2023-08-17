@@ -36,7 +36,12 @@ class Chess_board
         queue.push(first)
         distance = 0
 
-        
+        while !queue.empty?
+            if queue[0] == last
+                puts "You reached the goal in #{distance} steps"
+                return
+
+
 
         
 
