@@ -34,6 +34,9 @@ class Chess_board
     def shortest_path(first,last)
         queue = []
         queue.push(first)
+        distance = 0
+
+        
 
         
 
