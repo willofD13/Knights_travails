@@ -11,19 +11,19 @@ class Node
 end
 
 class Chess_board
-    attr_accessor :vertices
+    attr_accessor :vertices, :nodes
 
     def initialize(array)
-        nodes = array.repeated_permutation(2).to_a
+        @nodes = array.repeated_permutation(2).to_a
         index = 0
         
-        while index < nodes.length
-            nodes[index] = Node.new(nodes[index])
+        while index < @nodes.length
+            @nodes[index] = Node.new(@nodes[index])
             index += 1
         end
         
         @vertices = {}
-        create_board(nodes)
+        create_board(@nodes)
     end
 
     def create_board(nodes)
@@ -68,6 +68,9 @@ class Chess_board
     end
 
     def shortest_path(first,last)
+        source_node = find_node(first[0],first[1],nodes)
+        node_to_reach = find_node(last[0],last[1],nodes)
+
         queue = []
         queue.push(first)
         distance = 0
