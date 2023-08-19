@@ -41,11 +41,11 @@ class Chess_board
         moves = [[+2,+1], [+2,-1], [+1,+2], [+1,-2], [-1,+2], [-1,-2], [-2,+1], [-2,-1]]
 
         moves.each do |move|
-            x = k.value[0] + move[0]
-            y = k.value[1] + move[1]
+            x = k.value[0] + move[0] 
+            y = k.value[1] + move[1] # calculate possible moves
             
             i = 0
-            while i < nodes.length 
+            while i < nodes.length  # compare moves with node value and find neighbours
                 if !x.between?(1,8) || !y.between?(1,8)
                     break
                 elsif nodes[i].value == [x,y]
