@@ -3,7 +3,7 @@
 class Node 
     attr_accessor :predecessor, :distance, :value
 
-    def initialize(value,predecessor = nil, distance = 0)
+    def initialize(value,predecessor = nil, distance = nil)
         @value = value
         @predecessor = predecessor
         @distance = distance
