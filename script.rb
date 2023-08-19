@@ -47,6 +47,7 @@ class Chess_board
             neighbor = find_node(x,y,nodes)
             v << neighbor
         end 
+        v.compact!
         v 
     end
 
@@ -55,7 +56,7 @@ class Chess_board
         i = 0
         while i < nodes.length 
             if !value_1.between?(1,8) || !value_2.between?(1,8)
-                break
+                return
             elsif nodes[i].value == [value_1,value_2]
                 nodes[i]
                 break
@@ -78,8 +79,9 @@ class Chess_board
         while !queue.empty?
 
             vertices[queue[0]].each do |neighbor|
-                if neighbor.distance.nil?
-                    
+                if neighbor.distance.nil? # distance shows if a node has been visited
+                    neighbor.predecessor = queue[0]
+                    neighbor.distance = neighbor.predecessor.distance + 1
                 else 
                     next
                 end
