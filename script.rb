@@ -80,6 +80,7 @@ class Chess_board
         while !queue.empty?
             if queue.include?(node_to_reach)
                 puts "You reached the goal in #{node_to_reach.distance} steps"
+                return 
             else
                 vertices[queue[0]].each do |neighbor|
                     if neighbor.distance.nil? # distance shows if a node has been visited
@@ -90,7 +91,7 @@ class Chess_board
                         next
                     end
                 end
-                queue.shift
+                queue.shift #remove the item that has been in the queue the longest
             end
         end
     end
