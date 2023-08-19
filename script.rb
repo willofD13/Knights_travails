@@ -1,5 +1,5 @@
 #+2+1, +2-1, +1+2, +1-2, -1+2, -1-2, -2+1, -2-1
-
+require 'pry-byebug'
 class Node 
     attr_accessor :predecessor, :distance, :value
 
@@ -35,6 +35,7 @@ class Chess_board
             add_neighbors(k,v,nodes)
         end
         vertices
+        #binding.pry
     end
 
     def add_neighbors(k,v,nodes)
@@ -84,10 +85,12 @@ class Chess_board
                     if neighbor.distance.nil? # distance shows if a node has been visited
                         neighbor.predecessor = queue[0]
                         neighbor.distance = neighbor.predecessor.distance + 1
+                        queue << neighbor
                     else 
                         next
                     end
                 end
+                queue.shift
             end
         end
     end
