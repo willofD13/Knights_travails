@@ -40,6 +40,11 @@ class Chess_board
             if queue[0] == last
                 puts "You reached the goal in #{distance} steps"
                 return
+            else 
+                queue.concat(vertices[queue[0]])
+            end
+        end
+    end
 
 
 
@@ -48,3 +53,4 @@ class Chess_board
 end
 
 board = Chess_board.new([1,2,3,4,5,6,7,8])
+board.shortest_path([1,1],[3,3])
