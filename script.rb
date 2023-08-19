@@ -44,20 +44,27 @@ class Chess_board
             x = k.value[0] + move[0] 
             y = k.value[1] + move[1] # calculate possible moves
             
-            i = 0
-            while i < nodes.length  # compare moves with node value and find neighbours
-                if !x.between?(1,8) || !y.between?(1,8)
-                    break
-                elsif nodes[i].value == [x,y]
-                    v << nodes[i]
-                    break
-                else 
-                    i += 1
-                    next
-                end
-            end
+            neighbor = find_node(x,y,nodes)
+            v << neighbor
         end 
         v 
+    end
+
+    def find_node(value_1,value_2,nodes)
+
+        i = 0
+        while i < nodes.length 
+            if !value_1.between?(1,8) || !value_2.between?(1,8)
+                break
+            elsif nodes[i].value == [value_1,value_2]
+                nodes[i]
+                break
+            else 
+                i += 1
+                next
+            end
+        end
+        nodes[i]
     end
 
     def shortest_path(first,last)
