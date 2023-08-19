@@ -77,13 +77,16 @@ class Chess_board
         queue.push(source_node)
 
         while !queue.empty?
-
-            vertices[queue[0]].each do |neighbor|
-                if neighbor.distance.nil? # distance shows if a node has been visited
-                    neighbor.predecessor = queue[0]
-                    neighbor.distance = neighbor.predecessor.distance + 1
-                else 
-                    next
+            if queue.include?(node_to_reach)
+                puts "You reached the goal in #{node_to_reach.distance} steps"
+            else
+                vertices[queue[0]].each do |neighbor|
+                    if neighbor.distance.nil? # distance shows if a node has been visited
+                        neighbor.predecessor = queue[0]
+                        neighbor.distance = neighbor.predecessor.distance + 1
+                    else 
+                        next
+                    end
                 end
             end
         end
