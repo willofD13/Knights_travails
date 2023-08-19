@@ -55,7 +55,7 @@ class Chess_board
 
         i = 0
         while i < nodes.length 
-            if !value_1.between?(1,8) || !value_2.between?(1,8)
+            if !value_1.between?(1,8) || !value_2.between?(1,8) # exclude values that are off chess board
                 return
             elsif nodes[i].value == [value_1,value_2]
                 nodes[i]
