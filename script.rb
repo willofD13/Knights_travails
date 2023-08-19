@@ -72,8 +72,7 @@ class Chess_board
         node_to_reach = find_node(last[0],last[1],nodes)
 
         queue = []
-        queue.push(first)
-        distance = 0
+        queue.push(source_node)
 
         while !queue.empty?
             if queue[0] == last
