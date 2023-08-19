@@ -76,11 +76,13 @@ class Chess_board
         queue.push(source_node)
 
         while !queue.empty?
-            if queue[0] == last
-                puts "You reached the goal in #{distance} steps"
-                return
-            else 
-                queue.concat(vertices[queue[0]])
+
+            vertices[queue[0]].each do |neighbor|
+                if neighbor.distance.nil?
+                    
+                else 
+                    next
+                end
             end
         end
     end
