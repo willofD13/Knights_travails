@@ -79,7 +79,8 @@ class Chess_board
 
         while !queue.empty?
             if queue.include?(node_to_reach)
-                puts "You reached the goal in #{node_to_reach.distance} steps"
+                puts "You made it in #{node_to_reach.distance} moves"
+                puts "Here's your path:"
                 print_path(node_to_reach)
                 return 
             else
@@ -109,4 +110,4 @@ class Chess_board
 end
 
 board = Chess_board.new([1,2,3,4,5,6,7,8])
-board.shortest_path([1,1],[8,8])
+board.shortest_path([1,3],[5,3])
