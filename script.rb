@@ -1,5 +1,3 @@
-#+2+1, +2-1, +1+2, +1-2, -1+2, -1-2, -2+1, -2-1
-require 'pry-byebug'
 class Node 
     attr_accessor :predecessor, :distance, :value
 
