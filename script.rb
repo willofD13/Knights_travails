@@ -82,6 +82,7 @@ class Chess_board
                 puts "You made it in #{node_to_reach.distance} moves"
                 puts "Here's your path:"
                 print_path(node_to_reach)
+                puts "#{node_to_reach.value}"
                 return 
             else
                 vertices[queue[0]].each do |neighbor|
